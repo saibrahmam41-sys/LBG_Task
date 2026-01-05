@@ -1,0 +1,21 @@
+disabled_rules:
+  - trailing_whitespace
+  - line_length
+  - force_cast
+  - force_try
+  - comma
+  - for_where
+
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - first_where
+
+excluded:
+  - Pods
+  - DerivedData
+  - POSAppTests
+  - POSAppUITests
+
+warning_threshold: 15
+
