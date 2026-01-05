@@ -8,7 +8,6 @@
 import Foundation
 
 final class ProductRepository: ProductRepositoryProtocol {
-    // let a = [1,2,2]
     private let api: APIClientProtocol
 
     init(api: APIClientProtocol) {
