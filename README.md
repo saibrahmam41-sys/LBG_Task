@@ -12,3 +12,7 @@ This project focuses on scalability, testability, and production-ready practices
 - Unit Tests with 80%+ Code Coverage
 - SwiftLint via Swift Package Manager
 - Clean Architecture + MVVM
+
+🏗 Architecture
+- This project follows Clean Architecture principles with MVVM for presentation.
+<img width="312" height="1031" alt="Screenshot 2026-01-06 at 12 49 27 AM" src="https://github.com/user-attachments/assets/9f8548c4-d36d-437c-9187-420811d2bf5f" />
