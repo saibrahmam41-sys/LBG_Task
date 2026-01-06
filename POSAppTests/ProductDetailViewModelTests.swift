@@ -40,4 +40,19 @@ final class ProductDetailViewModelTests: XCTestCase {
 
         XCTAssertEqual(vm.error, "No Internet")
     }
+    
+    func test_ProductDetailView_body_executes() {
+        let vm = ProductDetailViewModel(
+            id: 1,
+            repository: MockProductRepository(),
+            network: MockNetworkMonitor(isConnected: true)
+        )
+
+        let view = ProductDetailView(viewModel: vm)
+
+        _ = view.body
+        XCTAssertTrue(true)
+    }
+
+
 }

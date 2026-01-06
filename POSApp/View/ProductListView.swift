@@ -20,7 +20,13 @@ struct ProductListView: View {
         NavigationStack {
             List(viewModel.products) { product in
                 NavigationLink {
-                    ProductDetailView(productId: product.id)
+                    ProductDetailView(
+                          viewModel: ProductDetailViewModel(
+                            id: product.id,
+                              repository: ProductRepository(api: APIClient()),
+                              network: NetworkMonitor()
+                          )
+                      )
                 } label: {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(product.title)

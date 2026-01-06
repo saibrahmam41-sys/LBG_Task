@@ -31,3 +31,19 @@ final class APIClientTests: XCTestCase {
         }
     }
 }
+extension URLSession {
+    static var failing: URLSession {
+        let config = URLSessionConfiguration.ephemeral
+        config.protocolClasses = [FailingURLProtocol.self]
+        return URLSession(configuration: config)
+    }
+}
+
+final class FailingURLProtocol: URLProtocol {
+    override class func canInit(with request: URLRequest) -> Bool { true }
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest { request }
+    override func startLoading() {
+        client?.urlProtocol(self, didFailWithError: URLError(.notConnectedToInternet))
+    }
+    override func stopLoading() {}
+}
