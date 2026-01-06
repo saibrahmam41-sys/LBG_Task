@@ -10,8 +10,6 @@ import Foundation
 final class APIClient: APIClientProtocol {
     private let baseURL = "https://fakestoreapi.com"
 
-    
-    
     func fetchProducts() async throws -> [Product] {
         let url = URL(string: "\(baseURL)/products")!
         let (data, _) = try await URLSession.shared.data(from: url)

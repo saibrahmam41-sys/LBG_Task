@@ -11,17 +11,8 @@ struct ProductDetailView: View {
 
     @StateObject private var viewModel: ProductDetailViewModel
 
-    init(productId: Int) {
-        let repository = ProductRepository(api: APIClient())
-        let network = NetworkMonitor()
-
-        _viewModel = StateObject(
-            wrappedValue: ProductDetailViewModel(
-                id: productId,
-                repository: repository,
-                network: network
-            )
-        )
+    init(viewModel: ProductDetailViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -29,7 +20,6 @@ struct ProductDetailView: View {
             VStack(spacing: 16) {
 
                 if let product = viewModel.product {
-
                     AsyncImage(url: URL(string: product.image)) { image in
                         image.resizable()
                     } placeholder: {
@@ -41,15 +31,11 @@ struct ProductDetailView: View {
                     Text(product.title)
                         .font(.title2)
                         .bold()
-                        .multilineTextAlignment(.center)
 
                     Text("₹ \(product.price, specifier: "%.2f")")
-                        .font(.title3)
                         .foregroundColor(.green)
 
                     Text(product.description)
-                        .font(.body)
-                        .padding()
                 }
 
                 if let error = viewModel.error {
