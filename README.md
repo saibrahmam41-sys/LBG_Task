@@ -15,7 +15,8 @@ This project focuses on scalability, testability, and production-ready practices
 
 🏗 Architecture
 - This project follows Clean Architecture principles with MVVM for presentation.
-<img width="312" height="1031" alt="Screenshot 2026-01-06 at 12 49 27 AM" src="https://github.com/user-attachments/assets/9f8548c4-d36d-437c-9187-420811d2bf5f" />
+<img width="310" height="1093" alt="Screenshot 2026-01-09 at 3 30 21 PM" src="https://github.com/user-attachments/assets/99350497-83cd-4cff-a7b9-14b45228a68e" />
+
 
 🌐 Network Handling
 - NetworkMonitor detects real-time connectivity
@@ -31,3 +32,10 @@ This project focuses on scalability, testability, and production-ready practices
    
 SwiftLint
 - SwiftLint is integrated via Swift Package Manager Plugin.
+
+📸 Screenshots 
+
+<img width="150" height="300" alt="IMG_2852" src="https://github.com/user-attachments/assets/c953540d-b4dd-4da8-8bb3-d9c44d7fe3b6" />
+
+
+<img width="150" height="300" alt="IMG_2851" src="https://github.com/user-attachments/assets/ae071be4-630f-4578-ad0d-30dad9bfa960" />
