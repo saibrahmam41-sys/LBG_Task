@@ -38,7 +38,7 @@ struct ProductListView: View {
                     }
                 }
             }
-            .navigationTitle("POS Sales")
+            .navigationTitle(UIConstants.productListTitle)
             .task {
                 await viewModel.load()
             }

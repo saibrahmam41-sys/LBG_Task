@@ -14,31 +14,24 @@ final class JailbreakDetector: JailbreakDetecting {
         return false
         #endif
 
-        let jailbreakPaths = [
-            "/Applications/Cydia.app",
-            "/Library/MobileSubstrate/MobileSubstrate.dylib",
-            "/bin/bash",
-            "/usr/sbin/sshd",
-            "/etc/apt"
-        ]
-
-        for path in jailbreakPaths {
+        for path in SecurityConstants.jailbreakPaths {
             if FileManager.default.fileExists(atPath: path) {
                 return true
             }
         }
 
-        if canWriteOutsideSandbox() {
-            return true
-        }
-
-        return false
+        return canWriteOutsideSandbox()
     }
 
     private func canWriteOutsideSandbox() -> Bool {
-        let testPath = "/private/jailbreak_test.txt"
+        let testPath = SecurityConstants.jailbreakTestFilePath
+
         do {
-            try "test".write(toFile: testPath, atomically: true, encoding: .utf8)
+            try "test".write(
+                toFile: testPath,
+                atomically: true,
+                encoding: .utf8
+            )
             try FileManager.default.removeItem(atPath: testPath)
             return true
         } catch {

@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 final class ProductDetailViewModel: ObservableObject {
 
     @Published var product: Product?
@@ -26,10 +25,10 @@ final class ProductDetailViewModel: ObservableObject {
         self.repository = repository
         self.network = network
     }
-
+    @MainActor
     func load() async {
         guard network.isConnected else {
-            error = "No Internet"
+            error = ErrorMessages.noInternet
             return
         }
 
