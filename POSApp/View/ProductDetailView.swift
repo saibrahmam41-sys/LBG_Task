@@ -25,14 +25,14 @@ struct ProductDetailView: View {
                     } placeholder: {
                         ProgressView()
                     }
-                    .frame(height: 200)
+                    .frame(height: UIConstants.imageHeight)
                     .scaledToFit()
 
                     Text(product.title)
                         .font(.title2)
                         .bold()
 
-                    Text("₹ \(product.price, specifier: "%.2f")")
+                    Text("\(AppConstants.currencySymbol) \(product.price, specifier: "%.2f")")
                         .foregroundColor(.green)
 
                     Text(product.description)
@@ -45,7 +45,7 @@ struct ProductDetailView: View {
             }
             .padding()
         }
-        .navigationTitle("Product Detail")
+        .navigationTitle(UIConstants.productDetailTitle)
         .task {
             await viewModel.load()
         }
